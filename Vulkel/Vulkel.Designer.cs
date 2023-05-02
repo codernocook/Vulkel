@@ -80,7 +80,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(22, 20);
             this.button1.TabIndex = 1;
-            this.button1.Text = "-";
+            this.button1.Text = "➖";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
@@ -186,11 +186,12 @@
             // listBox1
             // 
             this.listBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(2)))), ((int)(((byte)(21)))));
+            this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listBox1.ForeColor = System.Drawing.SystemColors.Window;
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Location = new System.Drawing.Point(556, 23);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(101, 264);
+            this.listBox1.Size = new System.Drawing.Size(101, 260);
             this.listBox1.TabIndex = 8;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
