@@ -62,6 +62,7 @@
             // 
             this.close_button.FlatAppearance.BorderSize = 0;
             this.close_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.close_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.close_button.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.close_button.Location = new System.Drawing.Point(647, 4);
             this.close_button.Name = "close_button";
@@ -95,7 +96,7 @@
             // 
             // execute
             // 
-            this.execute.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(2)))), ((int)(((byte)(21)))));
+            this.execute.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(3)))), ((int)(((byte)(33)))));
             this.execute.Cursor = System.Windows.Forms.Cursors.Default;
             this.execute.FlatAppearance.BorderSize = 0;
             this.execute.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -107,10 +108,11 @@
             this.execute.Text = "Execute";
             this.execute.UseVisualStyleBackColor = false;
             this.execute.Click += new System.EventHandler(this.button2_Click);
+            this.execute.MouseEnter += new System.EventHandler(this.execute_MouseEnter);
             // 
             // clear
             // 
-            this.clear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(2)))), ((int)(((byte)(21)))));
+            this.clear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(3)))), ((int)(((byte)(33)))));
             this.clear.Cursor = System.Windows.Forms.Cursors.Default;
             this.clear.FlatAppearance.BorderSize = 0;
             this.clear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -122,10 +124,11 @@
             this.clear.Text = "Clear";
             this.clear.UseVisualStyleBackColor = false;
             this.clear.Click += new System.EventHandler(this.button3_Click);
+            this.clear.MouseEnter += new System.EventHandler(this.execute_MouseEnter);
             // 
             // openFile
             // 
-            this.openFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(2)))), ((int)(((byte)(21)))));
+            this.openFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(3)))), ((int)(((byte)(33)))));
             this.openFile.Cursor = System.Windows.Forms.Cursors.Default;
             this.openFile.FlatAppearance.BorderSize = 0;
             this.openFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -137,10 +140,11 @@
             this.openFile.Text = "Open File";
             this.openFile.UseVisualStyleBackColor = false;
             this.openFile.Click += new System.EventHandler(this.button4_Click);
+            this.openFile.MouseEnter += new System.EventHandler(this.execute_MouseEnter);
             // 
             // inject
             // 
-            this.inject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(2)))), ((int)(((byte)(21)))));
+            this.inject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(3)))), ((int)(((byte)(33)))));
             this.inject.Cursor = System.Windows.Forms.Cursors.Default;
             this.inject.FlatAppearance.BorderSize = 0;
             this.inject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -152,10 +156,11 @@
             this.inject.Text = "Inject";
             this.inject.UseVisualStyleBackColor = false;
             this.inject.Click += new System.EventHandler(this.button5_Click);
+            this.inject.MouseEnter += new System.EventHandler(this.execute_MouseEnter);
             // 
             // scripthub
             // 
-            this.scripthub.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(2)))), ((int)(((byte)(21)))));
+            this.scripthub.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(3)))), ((int)(((byte)(33)))));
             this.scripthub.Cursor = System.Windows.Forms.Cursors.Default;
             this.scripthub.FlatAppearance.BorderSize = 0;
             this.scripthub.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -167,10 +172,11 @@
             this.scripthub.Text = "Script Hub";
             this.scripthub.UseVisualStyleBackColor = false;
             this.scripthub.Click += new System.EventHandler(this.button6_Click);
+            this.scripthub.MouseEnter += new System.EventHandler(this.execute_MouseEnter);
             // 
             // executeFile
             // 
-            this.executeFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(2)))), ((int)(((byte)(21)))));
+            this.executeFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(3)))), ((int)(((byte)(33)))));
             this.executeFile.Cursor = System.Windows.Forms.Cursors.Default;
             this.executeFile.FlatAppearance.BorderSize = 0;
             this.executeFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -182,6 +188,7 @@
             this.executeFile.Text = "Execute File";
             this.executeFile.UseVisualStyleBackColor = false;
             this.executeFile.Click += new System.EventHandler(this.button2_Click_1);
+            this.executeFile.MouseEnter += new System.EventHandler(this.execute_MouseEnter);
             // 
             // listBox1
             // 
@@ -214,6 +221,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Vulkel";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Vulkel";
             this.Load += new System.EventHandler(this.Vulkel_Load);
             this.panel1.ResumeLayout(false);

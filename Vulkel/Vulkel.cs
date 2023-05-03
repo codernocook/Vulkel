@@ -90,12 +90,30 @@ namespace Vulkel
 
         private async void Vulkel_Load(object sender, EventArgs e)
         {
+            // Change the Form (prevent byfron detection).
+            Random r = new Random();
+            string[] consonants = { "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "l", "n", "p", "q", "r", "s", "sh", "zh", "t", "v", "w", "x" };
+            string[] vowels = { "a", "e", "i", "o", "u", "ae", "y" };
+            string Name = "";
+            Name += consonants[r.Next(consonants.Length)].ToUpper();
+            Name += vowels[r.Next(vowels.Length)];
+            int b = 2; //b tells how many times a new letter has been added. It's 2 right now because the first two letters are already in the name.
+            while (b < 10)
+            {
+                Name += consonants[r.Next(consonants.Length)];
+                b++;
+                Name += vowels[r.Next(vowels.Length)];
+                b++;
+            }
+            this.Text = Name;
+
             // Listbox Auto refresh
             listBox1.Items.Clear();//Clear Items in the LuaScriptList
             Functions.PopulateListBox(listBox1, "./Scripts", "*.txt");
             Functions.PopulateListBox(listBox1, "./Scripts", "*.lua");
 
             // Monaco
+            webBrowser1.Visible = false;
             WebClient wc = new WebClient();
             wc.Proxy = null;
             try
@@ -128,6 +146,7 @@ namespace Vulkel
             {
                  ""
             });
+            webBrowser1.Visible = true;
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -186,9 +205,28 @@ namespace Vulkel
             Execution.Execute(script);
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private async void button5_Click(object sender, EventArgs e)
         {
-            API.Inject();
+            var res = await API.Inject();
+
+            switch (res)
+            {
+                case API.injectionResult.RobloxNotFound:
+                    MessageBox.Show("Please open ROBLOX before trying to inject.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+
+                case API.injectionResult.DLLBlocked:
+                    MessageBox.Show("Failed to download DLL! This could be due to an anti-virus.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+
+                case API.injectionResult.InjectorBlocked:
+                    MessageBox.Show("Failed to download Injector! This could be due to an anti-virus.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+
+                case API.injectionResult.InjectionFailed:
+                    MessageBox.Show("injection has failed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+            }
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -241,6 +279,11 @@ namespace Vulkel
             {
                  File.ReadAllText($"./scripts/{listBox1.SelectedItem}").ToString()
             });
+        }
+
+        private void execute_MouseEnter(object sender, EventArgs e)
+        {
+            
         }
     }
 }

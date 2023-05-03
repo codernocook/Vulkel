@@ -16,7 +16,7 @@ namespace Vulkel
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Vulkel());
+            Application.Run(new Loader());
         }
     }
 }

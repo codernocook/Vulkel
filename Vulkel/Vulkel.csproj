@@ -37,12 +37,18 @@
     <ApplicationIcon>Vulkel_ico.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Oxygen API, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Oxygen_API, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\Oxygen API.dll</HintPath>
+      <HintPath>bin\Debug\Oxygen_API.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.IO.Compression.ZipFile, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Compression.ZipFile.4.3.0\lib\net46\System.IO.Compression.ZipFile.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -55,6 +61,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Functions.cs" />
+    <Compile Include="Loader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Loader.Designer.cs">
+      <DependentUpon>Loader.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vulkel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +75,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Loader.resx">
+      <DependentUpon>Loader.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -76,6 +91,7 @@
     <EmbeddedResource Include="Vulkel.resx">
       <DependentUpon>Vulkel.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -90,6 +106,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\VulkelIcon.png" />
     <Content Include="Vulkel_ico.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -10,3 +10,4 @@ C:\Users\itzpo\source\repos\Vulkel\Vulkel\obj\Debug\Vulkel.csproj.CoreCompileInp
 C:\Users\itzpo\source\repos\Vulkel\Vulkel\obj\Debug\Vulkel.exe
 C:\Users\itzpo\source\repos\Vulkel\Vulkel\obj\Debug\Vulkel.pdb
 C:\Users\itzpo\source\repos\Vulkel\Vulkel\obj\Debug\Vulkel.csproj.CopyComplete
+C:\Users\itzpo\source\repos\Vulkel\Vulkel\obj\Debug\Vulkel.Loader.resources
