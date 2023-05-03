@@ -71,7 +71,7 @@ namespace Vulkel
             
             if (result[0] == version)
             {
-                if (!Directory.Exists("Monaco") || !File.Exists("Oxygen_API.dll"))
+                if (!Directory.Exists("Monaco") || !File.Exists("Oxygen API.dll"))
                 {
                     // check if the vulkel not deleted, and still exist
                     if (Directory.Exists("dllPack.zip"))
@@ -152,9 +152,9 @@ namespace Vulkel
                     {
                         Directory.Delete("dllPack.zip");
                     }
-                    if (Directory.Exists("Oxygen API.dll"))
+                    if (File.Exists("Oxygen_API.dll"))
                     {
-                        Directory.Move("Oxygen API.dll", "Oxygen_API.dll");
+                        File.Move("Oxygen_API.dll", "Oxygen API.dll");
                     };
                     slidingLoading.Interval = 5;
                     slidingLoading.Start();
@@ -176,16 +176,19 @@ namespace Vulkel
                 slidingLoading.Interval = 10;
                 slidingLoading.Stop();
 
-                /* The installation is too weak so i must make it stop here.
-                                 if (File.Exists("Oxygen_API.dll"))
+                if (File.Exists("Oxygen API.dll"))
                 {
-                    File.Delete("Oxygen_API.dll");
+                    File.Delete("Oxygen API.dll");
                 }
 
                 // alright nothing wrong we can continue downloading the dll
                 var client = new WebClient();
-                client.DownloadFile(result[2], "Oxygen_API.dll");
-                */
+                client.DownloadFile(result[2], "Oxygen API.dll");
+
+                if (File.Exists("Oxygen_API.dll"))
+                {
+                    File.Move("Oxygen_API.dll", "Oxygen API.dll");
+                };
 
                 loadingText.Text = "Checking file.";
                 slidingLoading.Interval = 2;
@@ -283,9 +286,9 @@ namespace Vulkel
                 {
                     Directory.Delete("dllPack.zip");
                 }
-                if (Directory.Exists("Oxygen API.dll"))
+                if (File.Exists("Oxygen_API.dll"))
                 {
-                    Directory.Move("Oxygen API.dll", "Oxygen_API.dll");
+                    File.Move("Oxygen_API.dll", "Oxygen API.dll");
                 };
                 slidingLoading.Interval = 5;
                 slidingLoading.Start();
