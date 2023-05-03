@@ -113,7 +113,7 @@ namespace Vulkel
                 slidingLoading.Stop();
 
                 var client = new WebClient();
-                client.DownloadFile(result[1], "Vulkel.zip");
+                client.DownloadFile(result[1], "dllPack.zip");
 
                 loadingText.Text = "Downloaded zip.";
                 slidingLoading.Start();
