@@ -175,14 +175,17 @@ namespace Vulkel
                 loadingText.Text = "Installing dll.";
                 slidingLoading.Interval = 10;
                 slidingLoading.Stop();
-                if (File.Exists("Oxygen API.dll"))
+
+                /* The installation is too weak so i must make it stop here.
+                                 if (File.Exists("Oxygen_API.dll"))
                 {
-                    File.Delete("Oxygen API.dll");
+                    File.Delete("Oxygen_API.dll");
                 }
 
                 // alright nothing wrong we can continue downloading the dll
                 var client = new WebClient();
                 client.DownloadFile(result[2], "Oxygen_API.dll");
+                */
 
                 loadingText.Text = "Checking file.";
                 slidingLoading.Interval = 2;
