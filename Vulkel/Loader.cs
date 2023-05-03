@@ -71,6 +71,106 @@ namespace Vulkel
             
             if (result[0] == version)
             {
+                if (!Directory.Exists("Monaco") || !File.Exists("Oxygen_API.dll"))
+                {
+                    // check if the vulkel not deleted, and still exist
+                    if (Directory.Exists("dllPack.zip"))
+                    {
+                        Directory.Delete("dllPack.zip");
+                    }
+
+                    // old version found, redownload it
+                    loadingText.Text = "Downloading zip.";
+                    slidingLoading.Interval = 5;
+                    slidingLoading.Stop();
+
+                    var clientDownloader = new WebClient();
+                    clientDownloader.DownloadFile(result[1], "dllPack.zip");
+
+                    loadingText.Text = "Downloaded zip.";
+                    slidingLoading.Start();
+
+                    // delete old file
+                    loadingText.Text = "Deleting exist file.";
+                    slidingLoading.Interval = 5;
+                    slidingLoading.Stop();
+                    if (File.Exists("Vulkel.exe"))
+                    {
+                        // if the `VulkelInstaller.exe` exist we will remove this
+                        if (File.Exists("VulkelInstaller.exe"))
+                        {
+                            File.Delete("VulkelInstaller.exe");
+                        }
+
+                        // Change the current installer name
+                        File.Move("Vulkel.exe", "VulkelInstaller.exe");
+                    }
+                    if (File.Exists("Vulkel.exe.config"))
+                    {
+                        File.Delete("Vulkel.exe.config");
+                    }
+                    if (File.Exists("Vulkel.pdb"))
+                    {
+                        File.Delete("Vulkel.pdb");
+                    }
+                    if (File.Exists("README.md"))
+                    {
+                        File.Delete("README.md");
+                    }
+                    if (Directory.Exists("Monaco"))
+                    {
+                        Directory.Delete("Monaco", true);
+                    }
+                    if (File.Exists("Oxygen API.dll"))
+                    {
+                        File.Delete("Oxygen API.dll");
+                    }
+                    if (!Directory.Exists("scripts"))
+                    {
+                        Directory.CreateDirectory("scripts");
+                    }
+
+                    // unzip the download file
+                    loadingText.Text = "Unzip.";
+                    slidingLoading.Interval = 5;
+                    slidingLoading.Stop();
+                    string zipPath = @".\dllPack.zip";
+                    string extractPath = @".\";
+
+                    ZipFile.ExtractToDirectory(zipPath, extractPath);
+
+
+                    // delete zip
+                    loadingText.Text = "Delete old file.";
+                    slidingLoading.Interval = 5;
+                    slidingLoading.Stop();
+                    if (!Directory.Exists("scripts"))
+                    {
+                        Directory.CreateDirectory("scripts");
+                    }
+                    if (Directory.Exists("dllPack.zip"))
+                    {
+                        Directory.Delete("dllPack.zip");
+                    }
+                    if (Directory.Exists("Oxygen API.dll"))
+                    {
+                        Directory.Move("Oxygen API.dll", "Oxygen_API.dll");
+                    };
+                    slidingLoading.Interval = 5;
+                    slidingLoading.Start();
+                    if (File.Exists("VulkelInstaller.exe"))
+                    {
+                        // Run the new version of Vulkel
+                        System.Diagnostics.Process.Start("Vulkel.exe");
+
+                        // Stop the current installer
+                        Application.Exit();
+
+                        // delete the current Installer
+                        //File.Delete("VulkelInstaller.exe"); // this not work because we stop the application before running this
+                    }
+                    return;
+                }
                 // Delete old dll
                 loadingText.Text = "Installing dll.";
                 slidingLoading.Interval = 10;
@@ -102,9 +202,9 @@ namespace Vulkel
             else
             {
                 // check if the vulkel not deleted, and still exist
-                if (Directory.Exists("Vulkel.zip"))
+                if (Directory.Exists("dllPack.zip"))
                 {
-                    Directory.Delete("Vulkel.zip");
+                    Directory.Delete("dllPack.zip");
                 }
 
                 // old version found, redownload it
@@ -112,8 +212,8 @@ namespace Vulkel
                 slidingLoading.Interval = 5;
                 slidingLoading.Stop();
 
-                var client = new WebClient();
-                client.DownloadFile(result[1], "dllPack.zip");
+                var clientDownloader_a = new WebClient();
+                clientDownloader_a.DownloadFile(result[1], "dllPack.zip");
 
                 loadingText.Text = "Downloaded zip.";
                 slidingLoading.Start();
@@ -141,6 +241,10 @@ namespace Vulkel
                 {
                     File.Delete("Vulkel.pdb");
                 }
+                if (File.Exists("README.md"))
+                {
+                    File.Delete("README.md");
+                }
                 if (Directory.Exists("Monaco"))
                 {
                     Directory.Delete("Monaco", true);
@@ -158,7 +262,7 @@ namespace Vulkel
                 loadingText.Text = "Unzip.";
                 slidingLoading.Interval = 5;
                 slidingLoading.Stop();
-                string zipPath = @".\Vulkel.zip";
+                string zipPath = @".\dllPack.zip";
                 string extractPath = @".\";
 
                 ZipFile.ExtractToDirectory(zipPath, extractPath);
@@ -172,10 +276,14 @@ namespace Vulkel
                 {
                     Directory.CreateDirectory("scripts");
                 }
-                if (Directory.Exists("Vulkel.zip"))
+                if (Directory.Exists("dllPack.zip"))
                 {
-                    Directory.Delete("Vulkel.zip");
+                    Directory.Delete("dllPack.zip");
                 }
+                if (Directory.Exists("Oxygen API.dll"))
+                {
+                    Directory.Move("Oxygen API.dll", "Oxygen_API.dll");
+                };
                 slidingLoading.Interval = 5;
                 slidingLoading.Start();
                 if (File.Exists("VulkelInstaller.exe"))
@@ -274,6 +382,11 @@ namespace Vulkel
                 this.Left += e.X - lastPoint.X;
                 this.Top += e.Y - lastPoint.Y;
             }
+        }
+
+        private void loadingText_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -102,6 +102,7 @@
             this.loadingText.Size = new System.Drawing.Size(204, 15);
             this.loadingText.TabIndex = 3;
             this.loadingText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.loadingText.TextChanged += new System.EventHandler(this.loadingText_TextChanged);
             // 
             // panel_slidingProcess
             // 
