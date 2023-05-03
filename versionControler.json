@@ -1,5 +1,5 @@
 {
     "version": "alpha-0.0.2",
     "download": "https://github.com/codernocook/Vulkel/releases/download/v0.0.1-alpha/Vulkel.zip",
-    "dll": "E"
+    "dll": "https://github.com/iDevastate/Oxygen-v2/raw/main/Oxygen_API.dll"
 }
