@@ -27,7 +27,7 @@ namespace Vulkel
         private async void Loader_Load(object sender, EventArgs e)
         {
             // Configuration
-            var version = "alpha-0.0.2";
+            var version = "alpha-0.0.3";
             //---------------------------//
             // Prevent the application open multiple time
             String thisprocessname = Process.GetCurrentProcess().ProcessName;
