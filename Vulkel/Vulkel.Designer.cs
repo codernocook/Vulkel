@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Vulkel));
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.ctrl_bar = new System.Windows.Forms.Panel();
             this.close_button = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
@@ -37,26 +37,26 @@
             this.clear = new System.Windows.Forms.Button();
             this.openFile = new System.Windows.Forms.Button();
             this.inject = new System.Windows.Forms.Button();
-            this.scripthub = new System.Windows.Forms.Button();
+            this.options = new System.Windows.Forms.Button();
             this.executeFile = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.panel1.SuspendLayout();
+            this.ctrl_bar.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // ctrl_bar
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(2)))), ((int)(((byte)(21)))));
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panel1.Controls.Add(this.close_button);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.panel1.Location = new System.Drawing.Point(0, -4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(672, 23);
-            this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
-            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            this.ctrl_bar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(2)))), ((int)(((byte)(21)))));
+            this.ctrl_bar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ctrl_bar.Controls.Add(this.close_button);
+            this.ctrl_bar.Controls.Add(this.button1);
+            this.ctrl_bar.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ctrl_bar.Location = new System.Drawing.Point(0, -4);
+            this.ctrl_bar.Name = "ctrl_bar";
+            this.ctrl_bar.Size = new System.Drawing.Size(672, 23);
+            this.ctrl_bar.TabIndex = 0;
+            this.ctrl_bar.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.ctrl_bar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.ctrl_bar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
             // close_button
             // 
@@ -158,21 +158,20 @@
             this.inject.Click += new System.EventHandler(this.button5_Click);
             this.inject.MouseEnter += new System.EventHandler(this.execute_MouseEnter);
             // 
-            // scripthub
+            // options
             // 
-            this.scripthub.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(3)))), ((int)(((byte)(33)))));
-            this.scripthub.Cursor = System.Windows.Forms.Cursors.Default;
-            this.scripthub.FlatAppearance.BorderSize = 0;
-            this.scripthub.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.scripthub.ForeColor = System.Drawing.Color.Snow;
-            this.scripthub.Location = new System.Drawing.Point(582, 313);
-            this.scripthub.Name = "scripthub";
-            this.scripthub.Size = new System.Drawing.Size(75, 24);
-            this.scripthub.TabIndex = 6;
-            this.scripthub.Text = "Script Hub";
-            this.scripthub.UseVisualStyleBackColor = false;
-            this.scripthub.Click += new System.EventHandler(this.button6_Click);
-            this.scripthub.MouseEnter += new System.EventHandler(this.execute_MouseEnter);
+            this.options.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(3)))), ((int)(((byte)(33)))));
+            this.options.Cursor = System.Windows.Forms.Cursors.Default;
+            this.options.FlatAppearance.BorderSize = 0;
+            this.options.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.options.ForeColor = System.Drawing.Color.Snow;
+            this.options.Location = new System.Drawing.Point(582, 313);
+            this.options.Name = "options";
+            this.options.Size = new System.Drawing.Size(75, 24);
+            this.options.TabIndex = 6;
+            this.options.Text = "Options";
+            this.options.UseVisualStyleBackColor = false;
+            this.options.MouseEnter += new System.EventHandler(this.execute_MouseEnter);
             // 
             // executeFile
             // 
@@ -210,13 +209,13 @@
             this.ClientSize = new System.Drawing.Size(669, 349);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.executeFile);
-            this.Controls.Add(this.scripthub);
+            this.Controls.Add(this.options);
             this.Controls.Add(this.inject);
             this.Controls.Add(this.openFile);
             this.Controls.Add(this.clear);
             this.Controls.Add(this.execute);
             this.Controls.Add(this.webBrowser1);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.ctrl_bar);
             this.ForeColor = System.Drawing.Color.Snow;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -224,14 +223,14 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Vulkel";
             this.Load += new System.EventHandler(this.Vulkel_Load);
-            this.panel1.ResumeLayout(false);
+            this.ctrl_bar.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel ctrl_bar;
         private System.Windows.Forms.Button close_button;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.WebBrowser webBrowser1;
@@ -239,7 +238,7 @@
         private System.Windows.Forms.Button clear;
         private System.Windows.Forms.Button openFile;
         private System.Windows.Forms.Button inject;
-        private System.Windows.Forms.Button scripthub;
+        private System.Windows.Forms.Button options;
         private System.Windows.Forms.Button executeFile;
         private System.Windows.Forms.ListBox listBox1;
     }

@@ -11,6 +11,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Oxygen;
+using System.Diagnostics;
+using System.Reflection;
 
 namespace Vulkel
 {
@@ -224,14 +226,9 @@ namespace Vulkel
                     return;
 
                 case API.injectionResult.InjectionFailed:
-                    MessageBox.Show("injection has failed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Failed to inject.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
             }
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-
         }
         
         private void button3_Click(object sender, EventArgs e)

@@ -60,7 +60,7 @@ namespace Vulkel
 
             // Checking for update
             slidingLoading.Interval = 50;
-            loadingText.Text = "Checking for update.";
+            loadingText.Text = "Checking for update...";
 
             await Task.Delay(5000);
 
@@ -71,12 +71,13 @@ namespace Vulkel
             
             if (result[0] == version)
             {
+                // Checking if some file got deleted or just not installed successfully
                 if (!Directory.Exists("Monaco") || !File.Exists("Oxygen API.dll"))
                 {
                     // check if the vulkel not deleted, and still exist
-                    if (Directory.Exists("dllPack.zip"))
+                    if (File.Exists("dllPack.zip"))
                     {
-                        Directory.Delete("dllPack.zip");
+                        File.Delete("dllPack.zip");
                     }
 
                     // old version found, redownload it
@@ -148,9 +149,9 @@ namespace Vulkel
                     {
                         Directory.CreateDirectory("scripts");
                     }
-                    if (Directory.Exists("dllPack.zip"))
+                    if (File.Exists("dllPack.zip"))
                     {
-                        Directory.Delete("dllPack.zip");
+                        File.Delete("dllPack.zip");
                     }
                     if (File.Exists("Oxygen_API.dll"))
                     {
@@ -171,11 +172,19 @@ namespace Vulkel
                     }
                     return;
                 }
-                // Delete old dll
+
+                // Start installing dll
                 loadingText.Text = "Installing dll.";
                 slidingLoading.Interval = 10;
                 slidingLoading.Stop();
 
+                // make sure the name of the dll is Oxygen API
+                if (File.Exists("Oxygen_API.dll"))
+                {
+                    File.Move("Oxygen_API.dll", "Oxygen API.dll");
+                };
+
+                // Delete old dll
                 if (File.Exists("Oxygen API.dll"))
                 {
                     File.Delete("Oxygen API.dll");
@@ -208,9 +217,9 @@ namespace Vulkel
             else
             {
                 // check if the vulkel not deleted, and still exist
-                if (Directory.Exists("dllPack.zip"))
+                if (File.Exists("dllPack.zip"))
                 {
-                    Directory.Delete("dllPack.zip");
+                    File.Delete("dllPack.zip");
                 }
 
                 // old version found, redownload it
@@ -282,9 +291,9 @@ namespace Vulkel
                 {
                     Directory.CreateDirectory("scripts");
                 }
-                if (Directory.Exists("dllPack.zip"))
+                if (File.Exists("dllPack.zip"))
                 {
-                    Directory.Delete("dllPack.zip");
+                    File.Delete("dllPack.zip");
                 }
                 if (File.Exists("Oxygen_API.dll"))
                 {
@@ -368,9 +377,13 @@ namespace Vulkel
             {
                 panel_slidingProcess.Width = mainPanel.Width;
                 slidingLoading.Stop();
-                Vulkel openform = new Vulkel();
-                openform.Show();
-                this.Hide();
+                Thread thread = new Thread(() =>
+                {
+                    Application.Run(new Vulkel());
+                });
+                thread.SetApartmentState(ApartmentState.STA);
+                thread.Start();
+                this.Invoke(new Action(() => { this.Close(); }));
             }
         }
 
