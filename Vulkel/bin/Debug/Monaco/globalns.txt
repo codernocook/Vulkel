@@ -10,6 +10,10 @@ string
 coroutine
 Humanoid
 ClickDetector
+crypt
+Drawing
+WebSocket
+cache
 LocalScript
 Model
 ModuleScript

@@ -38,6 +38,13 @@ Instance.new
 BrickColor.new
 Vector3.new
 Vector2.new
+cache.replace
+crypt.base64decode
+crypt.encrypt
+crypt.decrypt
+crypt.generatebytes
+crypt.generatekey
+crypt.hash
 debug.debug
 debug.gethook
 debug.getinfo

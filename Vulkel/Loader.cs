@@ -27,7 +27,7 @@ namespace Vulkel
         private async void Loader_Load(object sender, EventArgs e)
         {
             // Configuration
-            var version = "alpha-0.0.3";
+            var version = "alpha-0.0.4";
             //---------------------------//
             // Prevent the application open multiple time
             String thisprocessname = Process.GetCurrentProcess().ProcessName;
@@ -54,6 +54,9 @@ namespace Vulkel
                 b++;
             }
             this.Text = Name;
+
+            // Make the bootstrapper always on top (topMost)
+            this.TopMost = true;
 
             // start the loading interface
             slidingLoading.Start();
